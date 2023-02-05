@@ -7,5 +7,4 @@ class TeamMemberListView(View):
 
     def get(self, request):
         team_members = TeamMember.objects.all()
-        print(team_members)
         return render(request, self.template, { 'team_members': team_members })
