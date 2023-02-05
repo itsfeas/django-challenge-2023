@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from .models import TeamMember, TeamMemberForm
+from .models import TeamMember
+from .forms import TeamMemberForm
 
 class IndexView(View):
     template = 'index.html'

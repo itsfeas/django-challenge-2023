@@ -2,23 +2,29 @@
 {% load bootstrap_icons %}
 
 
-{% block title %}Team Member Dashboard{% endblock %}
+{% block title %}{% endblock %}
+
 {% block body %}
-    <div>
+    <div class="row">
         <div>
             <a href="{% url 'add' %}" class="float-end btn btn-light btn-lg">
-                {% bs_icon 'plus' %}
+                {% bs_icon 'plus-lg' %}
             </a>
         </div>
         <div>
-            <h1>Team members</h1>
-            <p>You have {{team_members|length}} team members.</p>
+            <h1>Team Member Dashboard</h1>
+            <p class="text-secondary">You have {{team_members|length}} team members.</p>
         </div>
         <ul class="list-group list-group-flush">
             {% for member in team_members %}
-            <a href="{% url 'edit' member.id %}">
-                <li class="list-group-item">
-                    <div>
+            <div class="list-group-item">
+                <div class="d-flex flex-row align-items-center">
+                    <div class="p-4">
+                        <a class="link-secondary" href="{% url 'edit' member.id %}">
+                            {% bs_icon 'person-circle' size='5em' %}
+                        </a>
+                    </div>
+                    <div class="row p-2">
                         <h3>
                             {{member.first_name}}
                             {{member.last_name}}
@@ -26,11 +32,14 @@
                                 (admin)
                             {% endif %}
                         </h3>
-                        <p>{{member.phone_number}}</p>
-                        <p>{{member.email}}</p>
+                        <p class="text-secondary">
+                            {{member.phone_number}} 
+                            <br/ >
+                            {{member.email}}
+                        </p>
                     </div>
-                </li>
-            </a>
+                </div>
+            </div>
             {% endfor %}
         </ul>
     </div>

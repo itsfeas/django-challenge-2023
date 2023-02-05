@@ -2,12 +2,37 @@
 {% load django_bootstrap5 %}
 
 
-{% block title %}Add Team Member{% endblock %}
+{% block title %}
+    {% if member_id is not None %}Add a Team Member
+    {% else %} Edit Team Member
+    {% endif %}
+{% endblock %}
+
 {% block body %}
-    <div class="w-25">
+    <div>
+        <div>
+            {% if member_id is not None %}
+                <h1>Edit Team Member</h1>
+                <p class="text-secondary">Edit contact info, location, and role.</p>
+            {% else %}
+                <h1>Add a Team Member</h1>
+                <p class="text-secondary">Set email, location, and role.</p>
+            {% endif %}
+        </div>
         <form method="POST">
             {% csrf_token %}
-            {% bootstrap_form form %}
+            <!-- {% bootstrap_form form %} -->
+            <div>
+                <h2>Info</h2>
+                {% bootstrap_field form.first_name show_label=False %}
+                {% bootstrap_field form.last_name show_label=False %}
+                {% bootstrap_field form.email show_label=False %}
+                {% bootstrap_field form.phone_number show_label=False %}
+            </div>
+            <div>
+                <h2>Role</h2>
+                {% bootstrap_field form.role show_label=False %}
+            </div>
             <div>
                 {% if member_id is not None %}
                     <a href="{% url 'delete' member_id %}" class="btn btn-danger float-start">
