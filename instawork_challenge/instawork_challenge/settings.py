@@ -32,6 +32,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'app.apps.AppConfig',
+    'django_bootstrap5',            # for pretty styling
+    'django_bootstrap_icons',       # for pretty icons
+    'crispy_forms',                 # for forms styling using Bootstrap
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

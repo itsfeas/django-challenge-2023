@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+
+{% block title %}Add Team Member{% endblock %}
+{% block body %}
+    <div class="w-25">
+        <form method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <div>
+                {% if member_id is not None %}
+                    <a href="{% url 'delete' member_id %}" class="btn btn-danger float-start">
+                        Delete
+                    </a>
+                {% endif %}
+                <button class="btn btn-primary float-end">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -13,7 +13,7 @@ class TeamMember(models.Model):
     email = models.CharField(max_length=30)
     role = models.PositiveIntegerField(default=Roles.REGULAR, choices=Roles.choices)
 
-class AuthorForm(ModelForm):
+class TeamMemberForm(ModelForm):
     class Meta:
         model = TeamMember
         fields = ['first_name', 'last_name', 'phone_number', 'email', 'role']

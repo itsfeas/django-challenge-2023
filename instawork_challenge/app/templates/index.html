@@ -1,26 +1,36 @@
 {% extends "base.html" %}
+{% load bootstrap_icons %}
 
 
 {% block title %}Team Member Dashboard{% endblock %}
 {% block body %}
     <div>
+        <div>
+            <a href="{% url 'add' %}" class="float-end btn btn-light btn-lg">
+                {% bs_icon 'plus' %}
+            </a>
+        </div>
+        <div>
+            <h1>Team members</h1>
+            <p>You have {{team_members|length}} team members.</p>
+        </div>
         <ul class="list-group list-group-flush">
             {% for member in team_members %}
-            <li class="list-group-item">
-                <div>
-                    <h3>
-                        {{member.first_name}}
-                        &nbsp;
-                        {{member.last_name}}
-                        {% if member.role is 1 %}
-                            &nbsp;
-                            (admin)
-                        {% endif %}
-                    </h3>
-                    <p>{{member.phone_number}}</p>
-                    <p>{{member.email}}</p>
-                </div>
-            </li>
+            <a href="{% url 'edit' member.id %}">
+                <li class="list-group-item">
+                    <div>
+                        <h3>
+                            {{member.first_name}}
+                            {{member.last_name}}
+                            {% if member.role is 1 %}
+                                (admin)
+                            {% endif %}
+                        </h3>
+                        <p>{{member.phone_number}}</p>
+                        <p>{{member.email}}</p>
+                    </div>
+                </li>
+            </a>
             {% endfor %}
         </ul>
     </div>
