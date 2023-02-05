@@ -21,16 +21,15 @@
         </div>
         <form method="POST">
             {% csrf_token %}
-            <!-- {% bootstrap_form form %} -->
             <div>
-                <h2>Info</h2>
+                <h5>Info</h5>
                 {% bootstrap_field form.first_name show_label=False %}
                 {% bootstrap_field form.last_name show_label=False %}
                 {% bootstrap_field form.email show_label=False %}
                 {% bootstrap_field form.phone_number show_label=False %}
             </div>
             <div>
-                <h2>Role</h2>
+                <h5>Role</h5>
                 {% bootstrap_field form.role show_label=False %}
             </div>
             <div>

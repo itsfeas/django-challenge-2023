@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Roles(models.IntegerChoices):
     REGULAR = 0, 'Regular'
     ADMIN = 1, 'Admin'
