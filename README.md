@@ -11,6 +11,6 @@
 2. To begin running tests, enter `py manage.py test` in the shell
 
 
-# Additional Django Libraries Used (provided as pip names):
+# Additional Django Libraries Used:
 1. Django Bootstrap 5 (pip: `django-bootstrap-v5`)
 2. Django Bootstrap Icons (pip: `django-bootstrap-icons`)
